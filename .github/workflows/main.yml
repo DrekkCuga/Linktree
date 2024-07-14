@@ -3,6 +3,14 @@
         "IMAGE_NAME": "${{ github.repository }}",
         "REGISTRY": "ghcr.io"
     },
+    "name": "Build and publish docker image",
+    "on": {
+        "push": {
+            "branches": [
+                "main"
+            ]
+        }
+    },
     "jobs": {
         "build-and-push": {
             "permissions": {
@@ -54,14 +62,6 @@
                         "subject-name": "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}"
                     }
                 }
-            ]
-        }
-    },
-    "name": "Build and publish docker image",
-    "on": {
-        "push": {
-            "branches": [
-                "main"
             ]
         }
     }
